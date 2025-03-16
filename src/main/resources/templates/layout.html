@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="UTF-8">
 
@@ -46,19 +46,22 @@
 
                 <div class="user-profile-info">
                     <div class="user-profile-box">
-                        <p sec:authorize="isAuthenticated()">
 
-                            <p><span th:text="${nickName}"></span>
+<!--                        <div sec:authorize="isAuthenticated()"> &lt;!&ndash; 인증 되었다면 true, 아니면 false를 반환합니다. if문처럼 사용됩니다. &ndash;&gt;-->
+<!--                            <span>[[${#authentication.principal.getUsername}]]</span><br/>-->
+<!--                            <span>[[${#authentication.principal.getNickname}]]</span><br/>-->
+<!--                            <span>[[${#authentication.principal.getUserAuthorityGrade}]]</span><br/>-->
+<!--                        </div>-->
+
+                        <p><span th:text="${nickName}"></span>
                         <span th:if="${auth == 'S'}" th:text="대표"></span>
                         <span th:if="${auth == 'A'}" th:text="부장"></span>
                         <span th:if="${auth == 'B'}" th:text="과장"></span>
                         <span th:if="${auth == 'C'}" th:text="대리"></span>
                         <span th:if="${auth == 'D'}" th:text="사원"></span>
-
                         </p>
 
 
-                        </p>
                     </div>
                     <div class="user-profile-buttons">
                         <!--마이페이지 연습-->

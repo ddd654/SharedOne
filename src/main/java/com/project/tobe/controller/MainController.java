@@ -45,10 +45,10 @@ public class MainController {
 
         }
 
-
         return "layout"; //언제나 view화면으로 이동합니다.
     }
 
+    //login.user
     @GetMapping("/{pageName}.user")
     public String login(@PathVariable String pageName, @RequestParam(value = "err", required = false) String err, Model model) {
         if ("true".equals(err)) {
@@ -62,30 +62,4 @@ public class MainController {
         return "accessDenied";
     }
 
-
-//    @GetMapping("/login.user")
-//    public ResponseEntity<Map<String, String>> login(@RequestParam(value = "err", required = false) String err) {
-//        Map<String, String> response = new HashMap<>();
-//        if ("true".equals(err)) {
-//            response.put("msg", "아이디, 비밀번호를 확인해주세요.");
-//        }
-//        return ResponseEntity.ok(response);
-//    }
-
-
-
-//    @PostMapping("/loginForm")
-//    public String loginValidate(Authentication auth) {
-//        System.out.println("login -------");
-//
-//        System.out.println(auth.toString());
-//
-//        Employee employee = employeeService.getUserById(auth.getName());
-//
-//        if (employee == null) {
-//            return "redirect:/login.user";
-//        }
-//
-//        return "redirect:/main.do";
-//    }
 }

@@ -4,6 +4,8 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.project.tobe.mapper.EmployeeMapper">
+
+    <!--직원 전체 조회-->
     <select id="getAllList" resultType="com.project.tobe.dto.EmployeeDTO">
         select *
         from employee e
@@ -20,7 +22,7 @@
         END;
     </select>
 
-
+    <!--직원 검색 조회-->
     <select id="getPickList" resultType="com.project.tobe.dto.EmployeeDTO">
         SELECT *
         FROM employee e
@@ -60,15 +62,15 @@
         END
     </select>
 
+    <!--직원 등록 시 아이디 체크-->
     <select id="employeeIdCheck" resultType="int">
         SELECT COUNT(*)
         FROM employee
         WHERE employee_id = #{employeeId}
     </select>
 
-
+    <!--직원 등록 -->
     <insert id="employeeRegistTest" parameterType="java.util.List">
-
         INSERT INTO employee (
         employee_id,
         employee_pw,
@@ -92,6 +94,7 @@
         </foreach>
     </insert>
 
+    <!--마이페이지 정보 수정-->
     <update id="employeeUpdateUser" parameterType="com.project.tobe.dto.EmployeeDTO">
         UPDATE employee
         SET employee_name  = #{employeeName},
@@ -101,7 +104,7 @@
             WHERE employee_id = #{employeeId}
     </update>
 
-
+    <!--직원 정보 수정-->
     <update id="employeeUpdateMaster" parameterType="com.project.tobe.dto.EmployeeDTO">
         UPDATE employee
         SET salary              = #{salary},
@@ -110,19 +113,16 @@
         WHERE employee_id = #{employeeId}
     </update>
 
+    <!--직원 비밀번호 변경-->
     <update id="employeePwChange" parameterType="com.project.tobe.dto.EmployeeDTO">
         UPDATE employee
         SET employee_pw = #{employeePw}
         WHERE employee_id = #{employeeId}
     </update>
 
-    <update id="employeeUpdateMypagePw" parameterType="com.project.tobe.dto.EmployeeDTO">
-        UPDATE employee
-        SET employee_pw = #{employeePw}
-        WHERE employee_id = #{employeeId}
-    </update>
 
 
+    <!--직원 선택 삭제-->
     <update id="employeeDeleteTest" parameterType="java.util.List">
         UPDATE employee
         SET empl_yn = 'N',
@@ -133,6 +133,7 @@
         </foreach>
     </update>
 
+    <!--직원 삭제-->
     <update id="employeeDeletePick" parameterType="String">
         UPDATE employee
         SET empl_yn     = 'N',
@@ -141,6 +142,7 @@
     </update>
 
 
+    <!--로그인한 직원 정보-->
     <select id="mypageAll" parameterType="String" resultType="com.project.tobe.dto.AuthorityDto">
 
         select *
@@ -162,7 +164,7 @@
 
     </select>
 
-
+    <!--마이페이지 정보 수정-->
     <update id="employeeUpdateMypage" parameterType="com.project.tobe.dto.EmployeeDTO">
         UPDATE employee
         SET employee_tel   = #{employeeTel},
@@ -171,6 +173,14 @@
         WHERE employee_id = #{employeeId}
     </update>
 
+    <!--마이페이지 비밀번호 변경-->
+    <update id="employeeUpdateMypagePw" parameterType="com.project.tobe.dto.EmployeeDTO">
+        UPDATE employee
+        SET employee_pw = #{employeePw}
+        WHERE employee_id = #{employeeId}
+    </update>
+
+    <!-- 본인보다 높은 권한의 직원 조회-->
     <select id="getManagerList" resultType="EmployeeDTO">
     <![CDATA[
         select *
@@ -183,8 +193,9 @@
                                where employee_id = #{employeeId})
             )
         ]]>
-</select>
+    </select>
 
+    <!-- 로그인한 직원의 월별 실적 조회 -->
     <select id="getMySalesByMonth" resultType="SalesByMonth">
         SELECT TO_CHAR(header.confirm_change_date, 'YYYY-MM') AS sales_month,
                SUM(coalesce(body.prod_total, 0))              AS total_sales
@@ -201,7 +212,9 @@
         ORDER BY TO_CHAR(header.confirm_change_date, 'YYYY-MM')
     </select>
 
+    <!-- 직원 이메일 조회 -->
     <select id="getEmail" resultType="string">
         select employee_email from employee where employee_id=#{employeeId}
     </select>
+
 </mapper>
