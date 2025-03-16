@@ -79,6 +79,11 @@ dependencies {
     implementation 'com.h2database:h2:2.1.214'  // 최신 버전 확인 후 추가
     implementation 'org.springframework.boot:spring-boot-starter-mail'
 
+
+//H2 보기
+implementation 'org.springframework.boot:spring-boot-devtools'
+
+
 }
 def querydslDir = "$buildDir/generated/querydsl"
 querydsl {

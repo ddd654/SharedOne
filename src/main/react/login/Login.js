@@ -15,7 +15,7 @@ function Login() {
         if (error === 'true') {
             alert("아이디, 비밀번호를 확인해주세요.");
             localStorage.setItem('focusInput', 'employeeId'); // 포커스할 요소 저장
-            location.href = "/login.user"; // 페이지 이동
+            // location.href = "/main.do"; // 페이지 이동
         }
 
         // 페이지 로드 시 localStorage에서 포커스할 요소를 읽고 포커스 맞추기
