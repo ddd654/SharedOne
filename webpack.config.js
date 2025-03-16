@@ -21,13 +21,14 @@ module.exports = {
         main: './main/Main.js',
 
     },
-    devtool: 'sourcemaps',
+    // devtool 수정
+    devtool: 'source-map', // 배포 시에만 소스맵을 포함
     cache: true,
     output: { //파일이 생성되는 경로
         path: __dirname,
         filename: './src/main/resources/static/bundle/[name].bundle.js'
     },
-    mode: 'none',
+    mode: 'production', // 배포용 모드 (최적화)
     module: {
         rules: [ {
             test: /\.js?$/,

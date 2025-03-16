@@ -62,7 +62,7 @@ dependencies {
 	implementation "com.querydsl:querydsl-apt:${queryDslVersion}"
 
 	// 2022.10.28[프뚜]: postgreSQL
-	implementation 'org.postgresql:postgresql:42.7.2'
+	// implementation 'org.postgresql:postgresql:42.7.2'
 
 // 2022.10.28[프뚜]: log4jdbc-log4j2
 	implementation 'org.bgee.log4jdbc-log4j2:log4jdbc-log4j2-jdbc4.1:1.16'
@@ -76,7 +76,8 @@ dependencies {
 
 	implementation 'org.springframework.boot:spring-boot-starter-mail' // Email
 
-
+    implementation 'com.h2database:h2:2.1.214'  // 최신 버전 확인 후 추가
+    implementation 'org.springframework.boot:spring-boot-starter-mail'
 
 }
 def querydslDir = "$buildDir/generated/querydsl"

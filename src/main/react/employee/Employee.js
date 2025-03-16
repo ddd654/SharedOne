@@ -102,7 +102,7 @@ function Employee() {
 const fetchEmployeeList = () => {
     axios.get('/employee/employeeALL')  // Spring Boot 엔드포인트와 동일한 URL로 요청
         .then(response => setEmployee(response.data))  // 응답 데이터를 상태로 설정
-    console.log(response.data);
+    // console.log(response.data);
         .catch(error => console.error('Error fetching Employee data:', error));
 
 };
