@@ -11,5 +11,5 @@
 - Intellij
 
 # pdf
-[쉐어드원 - 출판사를 위한 ERP 시스템 자료.pdf](https://github.com/user-attachments/files/19278808/sharedOne.pdf)
+[쉐어드원 - 출판사를 위한 ERP 시스템 자료.pdf](https://github.com/user-attachments/files/19278808/-.pdf)
 
