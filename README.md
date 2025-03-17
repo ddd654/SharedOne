@@ -10,5 +10,9 @@
 - Java11, spring 2.7, spring security, spring data JPA, Mybatis, AWS RDS
 - Intellij
 
+# ERD
+![Uploading 쉐어드원ERD.png…]()
+
+
 # pdf
 [쉐어드원 - 출판사를 위한 ERP 시스템 자료.pdf](https://github.com/user-attachments/files/19278885/-.ERP.pdf)
