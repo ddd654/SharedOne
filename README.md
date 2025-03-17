@@ -11,7 +11,7 @@
 - Intellij
 
 # ERD
-![Uploading 쉐어드원ERD.png…]()
+![image](https://github.com/user-attachments/assets/eccc50ad-5e47-41c3-8351-f0ff26a11f0e)
 
 
 # pdf
